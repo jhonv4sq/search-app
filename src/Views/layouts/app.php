@@ -6,6 +6,15 @@
     <title><?php echo $_ENV['APP_NAME']; ?></title>
 </head>
 <body>
-    <h1>hola</h1>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+
+    <section>
+        <?php echo $content; ?>
+    </section>
+
 </body>
 </html>
