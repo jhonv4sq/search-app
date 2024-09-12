@@ -8,7 +8,7 @@ class View {
         extract($data);
 
         ob_start();
-        require_once("src/Views/{$view}.php");
+        require_once("src/Views/{$view}.html");
         $content = ob_get_clean();
 
         require_once("src/Views/{$layout}.php");

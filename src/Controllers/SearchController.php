@@ -8,7 +8,7 @@ use App\Core\View;
 class SearchController {
 
     public function create () {
-        new View('searches.create');
+        new View('searches.index');
     }
 
     public function store () {
