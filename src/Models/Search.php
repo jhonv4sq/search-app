@@ -8,7 +8,7 @@ class Search {
     private string $text;
     private Database $db;
 
-    public function __construct($text) {
+    public function __construct(String $text = "") {
         $this->text = $text;
         $this->db = new Database();
     }
@@ -19,5 +19,10 @@ class Search {
             'text' => $this->text
         );
         return $this->db->executeQuery($query, $params);
+    }
+
+    public function showAll(): array {
+        $query = "SELECT text FROM searches";
+        return $this->db->fetchData($query);
     }
 }

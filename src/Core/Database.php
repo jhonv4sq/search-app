@@ -38,4 +38,16 @@ class Database {
             return false;
         }
     }
+
+    public function fetchData(string $query, array $params = []): array {
+        try {
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute($params);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $error) {
+            echo "Error: " . $error->getMessage();
+            return [];
+        }
+    }
 }

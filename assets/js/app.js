@@ -22,7 +22,7 @@ const getSearchResults = async (search) => {
 }
 
 const sendToApi = async (infoToSearch) => {
-    let endpoint = 'https://en.wikipedia.org/w/api.php?'
+    let endpoint = apiUri
     const url = endpoint + infoToSearch
 
     try {
@@ -46,6 +46,7 @@ const printAllResults = (results) => {
 
         let a = document.createElement('a')
         a.classList.add('card-title')
+        a.setAttribute('href', '#')
 
         let text = document.createTextNode(result.title)
 
@@ -57,22 +58,41 @@ const printAllResults = (results) => {
 }
 
 const addToHistory = (search) => {
+    try {
+        let response = fetch('/searches/store', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'search': search
+            })
+        }).then(res => res.json())
+        .then(response => {
+            console.log(response.message)
+        })
+    } catch (error) {
 
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     let form = document.getElementById('form')
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
+    if(form){
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
 
-        let search = e.target.querySelector('[name="search"]').value
+            let search = e.target.querySelector('[name="search"]').value
 
-        if (search != '') {
-            getSearchResults(search)
-        } else {
-            let div = document.getElementById('result')
-            div.innerHTML = ""
-        }
-    })
+
+            if (search != '') {
+                getSearchResults(search)
+            } else {
+                let div = document.getElementById('result')
+                div.innerHTML = ""
+            }
+        })
+    }
+
 })

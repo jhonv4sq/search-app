@@ -124,6 +124,36 @@ a:hover {
     text-align: center;
 }
 
+.table {
+    display: table;
+    caption-side: bottom;
+    border-collapse: collapse;
+    width: 40%;
+    margin-bottom: 1rem;
+    vertical-align: top;
+    border-color: #4d5154;
+    border-spacing: 2px;
+}
+
+.table > :not(caption) > * > * {
+    padding: 0.5rem 0.5rem;
+    background-color: var(#212529);
+    border-bottom-width: var(--bs-border-width);
+}
+
+thead, tbody, tfoot, tr, td, th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    text-align: center;
+}
+
 @media (min-width: 576px) {
     .container {
         --container-max-width: 540px
