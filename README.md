@@ -3,10 +3,13 @@
 ## Descripción.
 Este proyecto es un buscador que permite a los usuarios realizar búsquedas a través de una interfaz simple y conectarse a la API de Wikipedia para obtener resultados relevantes.
 
+------------
+
 ## Instrucciones de Instalación.
 
 #### 1.  Inicia tu servidor de xampp o wampserver.
 #### 2. Instalar dependencias de proyecto.
+Se esta haciendo uso de la librería **phpdotenv** para poder declarar variables de entorno 
 ```bash
 composer install
 ```
