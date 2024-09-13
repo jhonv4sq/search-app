@@ -1,7 +1,7 @@
 # Search App
 
 ## Descripción.
-Este proyecto es un buscador que permite a los usuarios realizar búsquedas a través de una interfaz simple y conectarse a la API de Wikipedia para obtener resultados relevantes.
+Este proyecto es un buscador que permite a los usuarios realizar búsquedas a través de una interfaz simple y conectarse a la API de Wikipedia para obtener resultados relevantes, además también permite consultar el historial de búsquedas realizada, este se registra en una base de datos sql.
 
 ------------
 
