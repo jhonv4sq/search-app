@@ -1,4 +1,3 @@
-<!-- redirigimos todas las vistas a index.php -->
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
