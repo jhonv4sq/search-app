@@ -7,7 +7,7 @@ use App\Core\View;
 
 class SearchController {
 
-    public function create () {
+    public function index () {
         new View('searches.index');
     }
 

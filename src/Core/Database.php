@@ -50,4 +50,13 @@ class Database {
             return [];
         }
     }
+
+    public function checkConnection() {
+        try {
+            $db = $this->getConnection();
+            return true;
+        } catch (PDOException $error) {
+            print_r($error->getMessage());
+        }
+    }
 }
