@@ -19,7 +19,7 @@ class Router {
         } else {
             foreach ($this->routes[$method] as $route => $action) {
                 // convertimos una ruta con parametros en una con expreciones regulares
-                $routePattern = preg_replace('/\{[a-zA-Z]+\}/', '([a-zA-Z0-9_.()\-]+)', $route);
+                $routePattern = preg_replace('/\{[a-zA-Z]+\}/', '([A-Za-z0-9_–"(),.]+)', $route);
                 $routePattern = '@^' . $routePattern . '$@';
 
                 // comprobamos las coincidencias y separamos las variables de la url
