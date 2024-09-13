@@ -41,12 +41,15 @@ const printAllResults = (results) => {
     div.innerHTML = ""
 
     results.forEach((result) => {
+        let search = result.title.replace(/\s+/g, "_")
+        let url = 'searches/show/' + search
+
         let divChild = document.createElement('div')
         divChild.classList.add('card')
 
         let a = document.createElement('a')
         a.classList.add('card-title')
-        a.setAttribute('href', '#')
+        a.setAttribute('href', url)
 
         let text = document.createTextNode(result.title)
 
@@ -94,5 +97,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
     }
-
 })

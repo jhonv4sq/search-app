@@ -41,4 +41,24 @@ class SearchController {
         new View('searches.history', ['allSearch' => $allSearch]);
     }
 
+    public function show (String $title) {
+
+        $infoJson = array(
+            'action' => 'parse',
+            'page' => $title,
+            'format' => 'json'
+        );
+
+        $url = $_ENV['API_URI'].http_build_query($infoJson);
+        $response = json_decode(file_get_contents($url), true);
+
+        if(isset($response['error'])) {
+            echo '404 - Not Found';
+        }else {
+            $title = $response['parse']['title'];
+            $content = $response['parse']['text']["*"];
+            new View('searches.show', ['title' => $title, 'content' => $content]);
+        }
+    }
+
 }

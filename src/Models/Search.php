@@ -22,7 +22,7 @@ class Search {
     }
 
     public function showAll(): array {
-        $query = "SELECT text FROM searches";
+        $query = "SELECT * FROM searches";
         return $this->db->fetchData($query);
     }
 }
